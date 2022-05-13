@@ -1,1 +1,1 @@
-# custom-dimension-spawn-fabric
+# Custom Dimension Spawn (Fabric)
