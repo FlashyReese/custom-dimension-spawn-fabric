@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "custom-dimension-spawn",
+  "version": "${version}",
+  "name": "Custom Dimension Spawn",
+  "description": "Allows you to set custom dimension spawn points via configuration.",
+  "authors": [
+    "FlashyReese"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.flashyreese.mods.customdimensionspawn.CustomDimensionSpawn"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*"
+  }
+}
