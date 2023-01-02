@@ -3,19 +3,30 @@ package me.flashyreese.mods.customdimensionspawn;
 import net.minecraft.nbt.NbtCompound;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class NbtUtils {
     public static boolean compareNbtCompound(NbtCompound condition, NbtCompound nbtCompound) {
+        AtomicBoolean atomicBoolean = null;
         for (String key : condition.getKeys()) {
             if (nbtCompound.contains(key)) {
                 int type = nbtCompound.getType(key);
                 int conditionType = condition.getType(key);
                 if (type == conditionType) { // Check type
-                    return matchesTypeAndValue(condition, nbtCompound, type, key);
+                    boolean state = matchesTypeAndValue(condition, nbtCompound, type, key);
+                    if (atomicBoolean == null) {
+                        atomicBoolean = new AtomicBoolean(state);
+                    } else {
+                        atomicBoolean = new AtomicBoolean(atomicBoolean.get() && state);
+                    }
+                } else {
+                    atomicBoolean = new AtomicBoolean(false);
                 }
+            } else {
+                atomicBoolean = new AtomicBoolean(false);
             }
         }
-        return false;
+        return atomicBoolean != null ? atomicBoolean.get() : false;
     }
 
     private static boolean matchesTypeAndValue(NbtCompound nbtCompound1, NbtCompound nbtCompound2, int type, String key) {

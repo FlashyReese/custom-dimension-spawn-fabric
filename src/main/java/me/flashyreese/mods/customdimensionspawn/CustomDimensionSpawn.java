@@ -85,12 +85,14 @@ public class CustomDimensionSpawn implements ModInitializer, ServerPlayerEvents.
 
         NbtCompound blockEntityNbt = blockEntity.createNbt();
 
+        System.out.println(blockEntityNbt.asString());
+
         if (player instanceof ServerPlayerEntity serverPlayerEntity) {
             this.checkNbtConditions(blockEntityNbt).forEach(identifier -> {
                 Advancement advancement = Objects.requireNonNull(serverPlayerEntity.getServer()).getAdvancementLoader().get(identifier);
 
                 if (advancement == null) {
-                    System.out.println("Something went wrong, couldn't find world with respawn dimension");
+                    System.out.println("Something went wrong, couldn't find advancement of: " + identifier);
                     return;
                 }
 
