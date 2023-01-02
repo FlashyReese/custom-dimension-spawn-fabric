@@ -1,26 +1,45 @@
 package me.flashyreese.mods.customdimensionspawn.model;
 
+import net.minecraft.util.Identifier;
+
+import java.util.List;
+
 public class DimensionSpawnPoint {
-    private String dimensionId;
-    private float positionX;
-    private float positionY;
-    private float positionZ;
+    private Identifier dimensionId;
+    private Identifier dimensionRespawn;
+    private List<CoordinateRange> coordinateRangeList;
+    private List<Identifier> biomeList;
+    private double positionX;
+    private double positionY;
+    private double positionZ;
     private float yaw;
     private float pitch;
 
-    public String getDimensionId() {
+    public Identifier getDimensionId() {
         return dimensionId;
     }
 
-    public float getPositionX() {
+    public Identifier getDimensionRespawn() {
+        return dimensionRespawn;
+    }
+
+    public List<CoordinateRange> getCoordinateRangeList() {
+        return coordinateRangeList;
+    }
+
+    public List<Identifier> getBiomeList() {
+        return biomeList;
+    }
+
+    public double getPositionX() {
         return positionX;
     }
 
-    public float getPositionY() {
+    public double getPositionY() {
         return positionY;
     }
 
-    public float getPositionZ() {
+    public double getPositionZ() {
         return positionZ;
     }
 

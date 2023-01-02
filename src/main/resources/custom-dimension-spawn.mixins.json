@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.flashyreese.mods.customdimensionspawn.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinSpawnerBlock"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
